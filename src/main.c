@@ -4,7 +4,8 @@
 #include "main.h"
 #include "milis.h"
 //#include "delay.h"
-//#include "uart1.h"
+#include "uart1.h"
+#include "max7219.h"
 
 void init(void)
 {
@@ -22,24 +23,11 @@ void init(void)
 
 int main(void)
 {
-  
-    uint32_t time = 0;
+ 
 
-    init();
 
-    while (1) {
-#if defined (BTN_PORT) && defined (BTN_PIN)
-        if (milis() - time > 333 && !PUSH(BTN)) {
-#else
-        if (milis() - time > 333 ) {
-#endif
-            REVERSE(LED); 
-            time = milis();
-            //printf("%ld\n", time);
-        }
-        //delay_ms(333);
-    }
 }
 
 /*-------------------------------  Assert -----------------------------------*/
 #include "__assert__.h"
+
